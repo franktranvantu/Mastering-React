@@ -1,4 +1,1 @@
-# ES6
-- var (function scope)
-- let (block scope)
-- const (block scope)
+# Objects
