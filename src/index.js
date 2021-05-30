@@ -1,12 +1,9 @@
 const person = {
   name: 'Frank',
   walk: function () {
-    console.log('Walking...');
-  },
-  talk() {
-
+    console.log(this);
   }
 };
 
-console.log(person.name);
-person['walk']();
+const walk = person.walk;
+walk();
