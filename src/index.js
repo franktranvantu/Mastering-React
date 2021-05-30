@@ -5,5 +5,5 @@ const person = {
   }
 };
 
-const walk = person.walk;
+const walk = person.walk.bind(person);
 walk();
