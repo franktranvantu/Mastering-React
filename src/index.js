@@ -1,6 +1,6 @@
 const person = {
   name: 'Frank',
-  walk: function () {
+  walk() {
     console.log(this);
   }
 };
