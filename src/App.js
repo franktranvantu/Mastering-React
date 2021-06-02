@@ -29,10 +29,6 @@ class App extends Component {
     }
   }
 
-  componentWillUnmount() {
-    console.log('App - Unmount');
-  }
-
   handleIncrement = id => {
     const counters = [...this.state.counters];
     const counter = this.state.counters.find(counter => counter.id === id);
