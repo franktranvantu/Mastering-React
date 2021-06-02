@@ -11,26 +11,12 @@ class App extends Component {
     ]
   }
 
-  constructor() {
-    super();
-    console.log('App - Constructor');
-  }
-
-  componentDidMount() {
-    // Ajax call
-    console.log('App - Mounted');
-  }
-
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('App - prevProps', prevProps);
     console.log('App - prevState', prevState);
     if (prevState.counters.length !== this.state.counters.length) {
       // Ajax call and get new data from the server
     }
-  }
-
-  componentWillUnmount() {
-    console.log('App - Unmount');
   }
 
   handleIncrement = id => {
@@ -56,7 +42,6 @@ class App extends Component {
     })
   }
   render() {
-    console.log('App - Rendered');
     return (
       <React.Fragment>
         <NavBar totalCounters={this.state.counters.filter(counter => counter.value > 0).length} />
