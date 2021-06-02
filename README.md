@@ -1,1 +1,1 @@
-# Handling Events
+# Binding Event Handlers
