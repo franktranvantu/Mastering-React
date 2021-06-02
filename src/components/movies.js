@@ -6,6 +6,12 @@ class Movies extends Component {
     movies: getMovies()
   }
 
+  handleDelete = (id) => {
+    this.setState({
+      movies: this.state.movies.filter(movie => movie._id !== id)
+    })
+  }
+
   renderMovieBody() {
     return (
       <tbody>
@@ -16,6 +22,7 @@ class Movies extends Component {
               <td>{movie.genre.name}</td>
               <td>{movie.numberInStock}</td>
               <td>{movie.dailyRentalRate}</td>
+              <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
             </tr>
           ))
         }
