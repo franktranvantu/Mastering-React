@@ -21,6 +21,14 @@ class App extends Component {
     console.log('App - Mounted');
   }
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('App - prevProps', prevProps);
+    console.log('App - prevState', prevState);
+    if (prevState.counters.length !== this.state.counters.length) {
+      // Ajax call and get new data from the server
+    }
+  }
+
   handleIncrement = id => {
     const counters = [...this.state.counters];
     const counter = this.state.counters.find(counter => counter.id === id);
