@@ -1,1 +1,1 @@
-# Passing Children
+# Debugging React Apps
