@@ -1,1 +1,1 @@
-# Stateless Functional Components
+# Destructuring Arguments
