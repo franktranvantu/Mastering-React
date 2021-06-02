@@ -1,1 +1,1 @@
-# Multiple Components in Sync
+# Lifting the State Up
