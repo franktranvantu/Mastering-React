@@ -13,17 +13,21 @@ class Movies extends Component {
   }
 
   renderMovieBody() {
-    return this.state.movies.map(movie => (
+    return (
       <tbody>
-        <tr key={movie._id}>
-          <td>{movie.title}</td>
-          <td>{movie.genre.name}</td>
-          <td>{movie.numberInStock}</td>
-          <td>{movie.dailyRentalRate}</td>
-          <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
-        </tr>
+      {
+        this.state.movies.map(movie => (
+          <tr key={movie._id}>
+            <td>{movie.title}</td>
+            <td>{movie.genre.name}</td>
+            <td>{movie.numberInStock}</td>
+            <td>{movie.dailyRentalRate}</td>
+            <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
+          </tr>
+        ))
+      }
       </tbody>
-    ));
+    );
   }
 
   renderMovieCount() {
