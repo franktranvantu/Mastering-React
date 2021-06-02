@@ -1,1 +1,1 @@
-# Lifting the State Up
+# Stateless Functional Components
