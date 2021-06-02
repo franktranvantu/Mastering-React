@@ -1,1 +1,1 @@
-# Single Source of Truth
+# emoving the Local State
