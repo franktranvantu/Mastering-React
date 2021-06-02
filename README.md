@@ -1,1 +1,1 @@
-# Setting Up the Vidly Project
+# Exercises

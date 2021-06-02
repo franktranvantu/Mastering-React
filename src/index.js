@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import Counter from "./components/counter";
+import Movies from "./components/movies";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Counter />
+    <Movies />
   </React.StrictMode>,
   document.getElementById('root')
 );
