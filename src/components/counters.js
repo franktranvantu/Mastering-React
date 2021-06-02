@@ -4,7 +4,7 @@ import Counter from "./counter";
 class Counters extends Component {
   state = {
     counters: [
-      {id: 1, value: 0},
+      {id: 1, value: 3},
       {id: 2, value: 0},
       {id: 3, value: 0}
     ]
