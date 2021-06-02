@@ -47,10 +47,16 @@ class Movies extends Component {
     );
   }
 
+  renderMovieCount() {
+    const {length: count} = this.state.movies;
+    return count === 0 ? 'There are no movies.' : `Showing ${count} movies in the database.`;
+  }
+
   render() {
     return (
       <div>
-        {this.renderMovieTable()}
+        <p>{this.renderMovieCount()}</p>
+        {this.state.movies.length === 0 || this.renderMovieTable()}
       </div>
     );
   }
