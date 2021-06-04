@@ -7,9 +7,9 @@ class Counter extends Component {
         <div className="col-1">
           <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         </div>
-        <div className="col-auto">
+        <div className="col">
           <button onClick={() => this.props.onIncrement(this.props.counter.id)} className="btn btn-secondary btn-sm m-1 px-2">+</button>
-          <button onClick={() => this.props.onDecrement(this.props.counter.id)} className="btn btn-secondary btn-sm m-1 px-2" disabled={this.props.counter.value <= 0 ? true : false}>-</button>
+          <button onClick={() => this.props.onDecrement(this.props.counter.id)} className="btn btn-secondary btn-sm m-1 px-2" disabled={this.props.counter.value === 0}>-</button>
           <button onClick={() => this.props.onDelete(this.props.counter.id)} className="btn btn-danger btn-sm m-1 px-2">x</button>
         </div>
       </div>
