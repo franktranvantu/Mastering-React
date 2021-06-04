@@ -1,1 +1,1 @@
-# Exercises
+# Like Component
