@@ -1,12 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'font-awesome/css/font-awesome.css';
-import Movies from "./components/movies";
+import './index.css';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Movies />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<App />, document.getElementById('root'));
+registerServiceWorker();
