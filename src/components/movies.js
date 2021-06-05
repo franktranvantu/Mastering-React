@@ -11,7 +11,8 @@ class Movies extends Component {
     movies: [],
     genres: [],
     pageSize: 4,
-    currentPage: 1
+    currentPage: 1,
+    selectedGenre: null
   }
 
   componentDidMount() {
@@ -42,12 +43,15 @@ class Movies extends Component {
   }
 
   handleGenreSelect = (genre) => {
-    console.log(genre);
+    this.setState({
+      selectedGenre: genre
+    })
   }
 
   render() {
     const {length: count} = this.state.movies;
     const {pageSize, currentPage, movies: allMovies} = this.state;
+    const {genres, selectedGenre} = this.state;
     const movies = paginate(allMovies, currentPage, pageSize);
 
     if (count === 0) {
@@ -61,7 +65,7 @@ class Movies extends Component {
       <div className="container pt-4">
         <div className="row">
           <div className="col-2">
-            <ListGroup items={this.state.genres} onItemSelect={this.handleGenreSelect} />
+            <ListGroup items={genres} selectedItem={selectedGenre} onItemSelect={this.handleGenreSelect} />
           </div>
           <div className="col">
             <p>Showing {count} movies</p>
