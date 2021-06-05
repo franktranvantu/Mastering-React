@@ -49,10 +49,11 @@ class Movies extends Component {
   }
 
   render() {
-    const {length: count} = this.state.movies;
     const {pageSize, currentPage, movies: allMovies} = this.state;
     const {genres, selectedGenre} = this.state;
-    const movies = paginate(allMovies, currentPage, pageSize);
+    const filteredMovies = selectedGenre ? allMovies.filter(movie => movie.genre._id === selectedGenre._id) : allMovies;
+    const movies = paginate(filteredMovies, currentPage, pageSize);
+    const {length: count} = filteredMovies;
 
     if (count === 0) {
       return (
