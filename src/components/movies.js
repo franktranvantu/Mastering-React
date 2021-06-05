@@ -35,7 +35,11 @@ class Movies extends Component {
     const {length: count} = this.state.movies;
     const {pageSize, currentPage, movies: allMovies} = this.state;
     if (count === 0) {
-      return <p>There are no movies.</p>;
+      return (
+        <div className="container pt-4">
+          <p>There are no movies.</p>
+        </div>
+      );
     }
     const movies = paginate(allMovies, currentPage, pageSize);
     return (
