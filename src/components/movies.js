@@ -25,11 +25,14 @@ class Movies extends Component {
   }
 
   handlePageChange = (page) => {
-
+    this.setState({
+      currentPage: page
+    })
   }
 
   render() {
     const {length: count} = this.state.movies;
+    const {pageSize, currentPage} = this.state;
     if (count === 0) {
       return (
         <div className="container pt-4">
@@ -66,7 +69,7 @@ class Movies extends Component {
           }
           </tbody>
         </table>
-        <Pagination itemsCount={count} pageSize={this.state.pageSize} onPageChange={this.handlePageChange}  />
+        <Pagination itemsCount={count} pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange}  />
       </div>
     );
   }
