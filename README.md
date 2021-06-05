@@ -1,1 +1,1 @@
-# Type Checking with PropTypes
+# ListGroup Component
