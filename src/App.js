@@ -1,18 +1,23 @@
 import React, { Component } from "react";
-import NavBar from "./components/navbar";
+import {Route} from 'react-router-dom';
+import Navbar from "./components/navbar";
+import "./App.css";
 import Products from "./components/products";
 import Posts from "./components/posts";
-import Home from "./components/home";
 import Dashboard from "./components/admin/dashboard";
-import ProductDetails from "./components/productDetails";
-import NotFound from "./components/notFound";
-import "./App.css";
+import Home from "./components/home";
 
 class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <Navbar />
+        <div className="content">
+          <Route path="/products" component={Products} />
+          <Route path="/posts" component={Posts} />
+          <Route path="/admin" component={Dashboard} />
+          <Route path="/" component={Home} />
+        </div>
       </div>
     );
   }
