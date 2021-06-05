@@ -1,1 +1,1 @@
-# Like Component
+# Component Interface
