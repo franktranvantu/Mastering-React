@@ -38,14 +38,7 @@ class Movies extends Component {
     this.setState({movies});
   }
 
-  handleSort = (path) => {
-    const sortColumn = {...this.state.sortColumn};
-    if (sortColumn.path === path) {
-      sortColumn.order = (sortColumn.order === 'asc') ? 'desc' : 'asc';
-    } else {
-      sortColumn.path = path;
-      sortColumn.order = 'asc';
-    }
+  handleSort = (sortColumn) => {
     this.setState({sortColumn});
   }
 
@@ -65,9 +58,9 @@ class Movies extends Component {
   render() {
     const {pageSize, currentPage, movies: allMovies} = this.state;
     const {genres, selectedGenre} = this.state;
-    const {path, order} = this.state.sortColumn;
+    const {sortColumn} = this.state;
     const filteredMovies = selectedGenre && selectedGenre._id ? allMovies.filter(movie => movie.genre._id === selectedGenre._id) : allMovies;
-    const sortedMovies = _.orderBy(filteredMovies, [path], [order]);
+    const sortedMovies = _.orderBy(filteredMovies, [sortColumn.path], [sortColumn.order]);
     const movies = paginate(sortedMovies, currentPage, pageSize);
     const {length: count} = sortedMovies;
 
@@ -86,7 +79,7 @@ class Movies extends Component {
           </div>
           <div className="col">
             <p>Showing {count} movies</p>
-            <MoviesTable movies={movies} onLike={this.handleLike} onSort={this.handleSort} onDelete={this.handleDelete} />
+            <MoviesTable movies={movies} sortColumn={sortColumn} onLike={this.handleLike} onSort={this.handleSort} onDelete={this.handleDelete} />
             <Pagination itemsCount={count} pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange}  />
           </div>
         </div>
