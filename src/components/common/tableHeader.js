@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TableHead extends Component {
+class TableHeader extends Component {
   handleSort = (path) => {
     const sortColumn = {...this.props.sortColumn};
     if (sortColumn.path === path) {
@@ -25,4 +25,4 @@ class TableHead extends Component {
   }
 }
 
-export default TableHead;
+export default TableHeader;
