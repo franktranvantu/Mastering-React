@@ -18,7 +18,7 @@ class Movies extends Component {
   componentDidMount() {
     this.setState({
       movies: getMovies(),
-      genres: [{name: 'All Genres'}, ...getGenres()]
+      genres: [{_id: '', name: 'All Genres'}, ...getGenres()]
     })
   }
 
@@ -34,6 +34,10 @@ class Movies extends Component {
     movies[index] = {...movie};
     movies[index].liked = !movies[index].liked;
     this.setState({movies});
+  }
+
+  handleSort = (header) => {
+
   }
 
   handlePageChange = (page) => {
@@ -71,7 +75,7 @@ class Movies extends Component {
           </div>
           <div className="col">
             <p>Showing {count} movies</p>
-            <MoviesTable movies={movies} onLike={this.handleLike} onDelete={this.handleDelete} />
+            <MoviesTable movies={movies} onLike={this.handleLike} onSort={this.handleSort} onDelete={this.handleDelete} />
             <Pagination itemsCount={count} pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange}  />
           </div>
         </div>
