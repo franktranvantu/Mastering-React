@@ -9,9 +9,9 @@ const MoviesTable = (props) => {
       <thead>
       <tr>
         <th onClick={() => onSort('title')} scope="col">Title</th>
-        <th onClick={() => onSort('genre')} scope="col">Genre</th>
-        <th onClick={() => onSort('stock')} scope="col">Stock</th>
-        <th onClick={() => onSort('rate')} scope="col">Rate</th>
+        <th onClick={() => onSort('genre.name')} scope="col">Genre</th>
+        <th onClick={() => onSort('numberInStock')} scope="col">Stock</th>
+        <th onClick={() => onSort('dailyRentalRate')} scope="col">Rate</th>
         <th scope="col">Like</th>
         <th scope="col">Action</th>
       </tr>
