@@ -12,33 +12,20 @@ class Movies extends Component {
     });
   }
 
-  renderMovieBody() {
-    return (
-      <tbody>
-      {
-        this.state.movies.map(movie => (
-          <tr key={movie._id}>
-            <td>{movie.title}</td>
-            <td>{movie.genre.name}</td>
-            <td>{movie.numberInStock}</td>
-            <td>{movie.dailyRentalRate}</td>
-            <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
-          </tr>
-        ))
-      }
-      </tbody>
-    );
-  }
-
-  renderMovieCount() {
+  render() {
     const {length: count} = this.state.movies;
-    return count === 0 ? 'There are no movies.' : `Showing ${count} movies in the database.`;
-  }
-
-  renderMovieTable() {
+    if (count === 0) {
+      return (
+        <div className="container pt-4">
+          <p>There are no movies.</p>
+        </div>
+      );
+    }
     return (
-      <table className="table">
-        <thead>
+      <div className="container pt-4">
+        <p>Showing {count} movies.</p>
+        <table className="table">
+          <thead>
           <tr>
             <th scope="col">Title</th>
             <th scope="col">Genre</th>
@@ -46,18 +33,22 @@ class Movies extends Component {
             <th scope="col">Rate</th>
             <th scope="col"></th>
           </tr>
-        </thead>
-        {this.renderMovieBody()}
-      </table>
-    );
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <p>{this.renderMovieCount()}</p>
-        {this.state.movies.length === 0 || this.renderMovieTable()}
-      </React.Fragment>
+          </thead>
+          <tbody>
+          {
+            this.state.movies.map(movie => (
+              <tr key={movie._id}>
+                <td>{movie.title}</td>
+                <td>{movie.genre.name}</td>
+                <td>{movie.numberInStock}</td>
+                <td>{movie.dailyRentalRate}</td>
+                <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
+              </tr>
+            ))
+          }
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
