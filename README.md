@@ -1,1 +1,1 @@
-# Like Component
+# Pagination Component

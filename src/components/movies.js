@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import {getMovies} from '../services/fakeMovieService';
-import Like from "./common/Like";
+import Like from "./common/like";
+import Pagination from "./common/pagination";
+import {paginate} from "../utils/paginate";
 
 class Movies extends Component {
   state = {
-    movies: getMovies()
+    movies: getMovies(),
+    pageSize: 4,
+    currentPage: 1
   }
 
   handleDelete = (id) => {
@@ -21,34 +25,24 @@ class Movies extends Component {
     this.setState({movies});
   }
 
-  renderMovieBody() {
-    return (
-      <tbody>
-      {
-        this.state.movies.map(movie => (
-          <tr key={movie._id}>
-            <td>{movie.title}</td>
-            <td>{movie.genre.name}</td>
-            <td>{movie.numberInStock}</td>
-            <td>{movie.dailyRentalRate}</td>
-            <td><Like onClick={() => this.handleLike(movie)} liked={movie.liked} /></td>
-            <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
-          </tr>
-        ))
-      }
-      </tbody>
-    );
+  handlePageChange = (page) => {
+    this.setState({
+      currentPage: page
+    })
   }
 
-  renderMovieCount() {
+  render() {
     const {length: count} = this.state.movies;
-    return count === 0 ? 'There are no movies.' : `Showing ${count} movies in the database.`;
-  }
-
-  renderMovieTable() {
+    const {pageSize, currentPage, movies: allMovies} = this.state;
+    if (count === 0) {
+      return <p>There are no movies.</p>;
+    }
+    const movies = paginate(allMovies, currentPage, pageSize);
     return (
-      <table className="table">
-        <thead>
+      <div className="container pt-4">
+        <p>Showing {count} movies.</p>
+        <table className="table">
+          <thead>
           <tr>
             <th scope="col">Title</th>
             <th scope="col">Genre</th>
@@ -57,17 +51,23 @@ class Movies extends Component {
             <th scope="col">Like</th>
             <th scope="col">Action</th>
           </tr>
-        </thead>
-        {this.renderMovieBody()}
-      </table>
-    );
-  }
-
-  render() {
-    return (
-      <div className="container pt-4">
-        <p>{this.renderMovieCount()}</p>
-        {this.state.movies.length === 0 || this.renderMovieTable()}
+          </thead>
+          <tbody>
+          {
+            movies.map(movie => (
+              <tr key={movie._id}>
+                <td>{movie.title}</td>
+                <td>{movie.genre.name}</td>
+                <td>{movie.numberInStock}</td>
+                <td>{movie.dailyRentalRate}</td>
+                <td><Like onClick={() => this.handleLike(movie)} liked={movie.liked} /></td>
+                <td><button onClick={() => this.handleDelete(movie._id)} className="btn btn-danger">Delete</button></td>
+              </tr>
+            ))
+          }
+          </tbody>
+        </table>
+        <Pagination itemsCount="abc" pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange} />
       </div>
     );
   }
