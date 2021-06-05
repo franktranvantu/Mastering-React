@@ -1,1 +1,1 @@
-# Paginating Data
+# Type Checking with PropTypes

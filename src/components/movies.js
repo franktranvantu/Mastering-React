@@ -72,7 +72,7 @@ class Movies extends Component {
           }
           </tbody>
         </table>
-        <Pagination itemsCount={count} pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange}  />
+        <Pagination itemsCount="abc" pageSize={pageSize} currentPage={currentPage} onPageChange={this.handlePageChange}  />
       </div>
     );
   }
