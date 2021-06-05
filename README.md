@@ -1,1 +1,1 @@
-# ListGroup Component
+# Filtering Component Interface
