@@ -1,1 +1,1 @@
-# Deleting Data
+# Optimistic vs Pessimistic Updates
