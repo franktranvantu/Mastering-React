@@ -1,1 +1,1 @@
-# Displaying Toast Notifications
+# Logging Errors
