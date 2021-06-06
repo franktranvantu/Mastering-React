@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   handleAdd = async () => {
-    const obj = {title: 'Title', body: 'Body'};
+    const obj = {title: 'a', body: 'b'};
     const {data: post} = await axios.post(apiEndpoint, obj);
     const posts = [post, ...this.state.posts];
     this.setState({posts});
