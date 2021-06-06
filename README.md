@@ -1,1 +1,1 @@
-# Expected vs Unexpected Errors
+# Handling Unexpected Errors Globally
