@@ -1,1 +1,1 @@
-# Optimistic vs Pessimistic Updates
+# Expected vs Unexpected Errors
