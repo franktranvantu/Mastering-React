@@ -1,1 +1,1 @@
-# Extracting a Reusable Form
+# Extracting Helper Rendering Methods
