@@ -1,32 +1,61 @@
 import React, { Component } from "react";
-import {Route, Switch, Redirect} from 'react-router-dom';
-import MovieForm from "./components/movieForm";
-import Movies from "./components/movies";
-import Customers from "./components/customers";
-import Rentals from "./components/rentals";
-import LoginForm from "./components/loginForm";
-import RegisterForm from "./components/registerForm";
-import NotFound from "./components/notFound";
-import NavBar from "./components/navBar";
+import "./App.css";
 
 class App extends Component {
+  state = {
+    posts: []
+  };
+
+  handleAdd = () => {
+    console.log("Add");
+  };
+
+  handleUpdate = post => {
+    console.log("Update", post);
+  };
+
+  handleDelete = post => {
+    console.log("Delete", post);
+  };
+
   render() {
     return (
       <React.Fragment>
-        <NavBar />
-        <main className="container">
-          <Switch>
-            <Route path="/movies/:id" component={MovieForm} />
-            <Route path="/movies" component={Movies} />
-            <Route path="/customers" component={Customers} />
-            <Route path="/rentals" component={Rentals} />
-            <Route path="/login" component={LoginForm} />
-            <Route path="/register" component={RegisterForm} />
-            <Route path="/not-found" component={NotFound} />
-            <Redirect from="/" exact to="/movies" />
-            <Redirect to="/not-found" />
-          </Switch>
-        </main>
+        <button className="btn btn-primary" onClick={this.handleAdd}>
+          Add
+        </button>
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.posts.map(post => (
+              <tr key={post.id}>
+                <td>{post.title}</td>
+                <td>
+                  <button
+                    className="btn btn-info btn-sm"
+                    onClick={() => this.handleUpdate(post)}
+                  >
+                    Update
+                  </button>
+                </td>
+                <td>
+                  <button
+                    className="btn btn-danger btn-sm"
+                    onClick={() => this.handleDelete(post)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </React.Fragment>
     );
   }
