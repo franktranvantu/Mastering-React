@@ -6,11 +6,17 @@ class LoginForm extends Component {
     account: {
       username: '',
       password: ''
-    }
+    },
+    errors: {}
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const errors = this.validate();
+    this.setState({errors});
+    if (errors) {
+      return;
+    }
     console.log('Submitted');
   }
 
@@ -18,6 +24,12 @@ class LoginForm extends Component {
     const account = {...this.state.account};
     account[input.name] = input.value;
     this.setState({account});
+  }
+
+  validate = () => {
+    return {
+      username: 'Username is required.'
+    }
   }
 
   render() {
