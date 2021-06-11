@@ -1,0 +1,9 @@
+{
+  "jwtPrivateKey": "unsecureKey",
+  "db": {
+    "url": "mongodb://localhost/vidly",
+    "username": "admin",
+    "password": "admin",
+    "authSource": "admin"
+  }
+}
