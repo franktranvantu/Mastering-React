@@ -1,1 +1,1 @@
-# Submitting the Register Form
+# Handling Registration Errors
