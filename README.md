@@ -1,1 +1,1 @@
-# Displaying the Current User on NavBar
+# Logging out a User
