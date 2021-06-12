@@ -1,1 +1,5 @@
-# Logging in the User upon Registration
+# Getting the Current User
+
+```bash
+npm i jwt-decode
+```
