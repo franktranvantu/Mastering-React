@@ -1,1 +1,1 @@
-# Storing the JWT
+# Logging in the User upon Registration
