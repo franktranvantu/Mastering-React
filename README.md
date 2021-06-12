@@ -1,5 +1,1 @@
-# Getting the Current User
-
-```bash
-npm i jwt-decode
-```
+# Displaying the Current User on NavBar
