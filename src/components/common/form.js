@@ -4,7 +4,15 @@ import Input from "./input";
 import Select from "./select";
 
 class Form extends Component {
-    validate = () => {
+  state = {
+    data: {
+      username: '',
+      password: ''
+    },
+    errors: {}
+  }
+
+  validate = () => {
     const options = {abortEarly: false};
     const {error} = Joi.validate(this.state.data, this.schema, options);
     if (!error) {
