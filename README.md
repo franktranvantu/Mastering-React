@@ -27,4 +27,4 @@ Next, from the project folder, install the dependencies:
 
     node index.js
 
-This will launch the Node server on port 3000. If that port is busy, you can set a different point in config/default.json.
+This will launch the Node server on port 3900. If that port is busy, you can set a different point in config/default.json.
