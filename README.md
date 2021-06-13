@@ -1,1 +1,1 @@
-# Protecting Routes
+# Extracting ProtectedRoute

@@ -12,6 +12,7 @@ import RegisterForm from "./components/registerForm";
 import NotFound from "./components/notFound";
 import NavBar from "./components/navBar";
 import auth from './services/authService';
+import ProtectedRoute from "./components/common/protectedRoute";
 
 class App extends Component {
   state = {};
@@ -30,12 +31,7 @@ class App extends Component {
         <NavBar user={user} />
         <main className="container">
           <Switch>
-            <Route path="/movies/:id" render={props => {
-              if (!user) {
-                return <Redirect to="/login" />
-              }
-              return <MovieForm {...props} />
-            }} />
+            <ProtectedRoute path="/movies/:id" component={MovieForm} />
             <Route path="/movies" render={props => <Movies {...props} user={this.state.user} />} />
             <Route path="/customers" component={Customers} />
             <Route path="/rentals" component={Rentals} />
