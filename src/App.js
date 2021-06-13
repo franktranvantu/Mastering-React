@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import Movie from "./hoc/Movie";
+import Counter1 from "./hooks/Counter1";
+import Counter2 from "./hooks/Counter2";
 
 class App extends Component {
   render() {
     return (
-      <Movie id={1} />
+      <div>
+        <Counter1 />
+        <Counter2 />
+      </div>
     );
   }
 }
