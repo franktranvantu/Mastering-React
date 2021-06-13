@@ -1,1 +1,1 @@
-# Fixing Bi-directional Dependencies
+# Showing or Hiding Elements based on the User

@@ -18,12 +18,13 @@ class MoviesTable extends Component {
     {
       key: "delete",
       content: movie => (
-        <button
-          onClick={() => this.props.onDelete(movie)}
-          className="btn btn-danger btn-sm"
-        >
-          Delete
-        </button>
+        this.props.user && this.props.user.isAdmin &&
+          <button
+            onClick={() => this.props.onDelete(movie)}
+            className="btn btn-danger btn-sm"
+          >
+            Delete
+          </button>
       )
     }
   ];
