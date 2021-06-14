@@ -1,1 +1,1 @@
-# Context in Class Components
+# Context in Functional Components
