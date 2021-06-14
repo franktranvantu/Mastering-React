@@ -6,7 +6,7 @@ function MovieRow(props) {
   console.log("Context: ", currentUser);
 
   return (
-    <div>{currentUser.name}</div>
+    <div>Movie Row {currentUser.name}</div>
   );
 }
 
