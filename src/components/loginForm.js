@@ -6,6 +6,14 @@ import authService from "../services/authService";
 import {Redirect} from "react-router-dom";
 
 class LoginForm extends Form {
+  state = {
+    data: {
+      username: '',
+      password: ''
+    },
+    errors: {}
+  }
+
   schema = {
     username: Joi.string().required().label('Username'),
     password: Joi.string().required().label('Password')
